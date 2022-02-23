@@ -15,11 +15,7 @@ export const run = async (pagesToScrape: number, url: string) => {
       }
       const browser = await puppeteer.launch({
         headless: true,
-        args: [
-          '--disable-dev-shm-usage',
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-        ],
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
       });
       const page = await browser.newPage();
       await page.setRequestInterception(true);

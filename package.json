@@ -1,6 +1,9 @@
 {
-  "name": "vite-boilerplate",
+  "name": "scraper-plus",
   "version": "0.0.0",
+  "engines": {
+    "yarn": "1.22.15"
+  },
   "scripts": {
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
     "client:dev": "vite",
