@@ -1,0 +1,12 @@
+.fieldset {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}

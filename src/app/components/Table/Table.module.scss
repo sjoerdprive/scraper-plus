@@ -1,0 +1,24 @@
+.table {
+  margin: auto;
+}
+
+.row {
+  padding: 0.5em;
+
+  &:nth-child(odd) {
+    background-color: whitesmoke;
+  }
+
+  td {
+    padding: 0.5em 1em;
+  }
+
+}
+
+.ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.25em;
+}

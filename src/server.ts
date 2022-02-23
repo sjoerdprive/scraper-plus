@@ -2,6 +2,8 @@ import express from 'express';
 import router from './lib/router';
 import path from 'path';
 
+import { run } from './scraper';
+
 const { PORT = 3001 } = process.env;
 
 const app = express();
@@ -14,6 +16,19 @@ app.use('/api', router);
 
 // Serve storybook production bundle
 app.use('/storybook', express.static('dist/storybook'));
+
+app.post('/api', async (_req, res) => {
+  const urlToFetch = _req.body.url;
+
+  console.log('fetching for ', urlToFetch);
+
+  try {
+    const response = await run(1, urlToFetch);
+    res.send(response);
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 // Serve app production bundle
 app.use(express.static('dist/app'));

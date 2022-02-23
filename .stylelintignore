@@ -4,3 +4,7 @@ dist
 dist-ssr
 *.local
 .eslintcache
+output
+outputimage
+.husky
+.storybook
