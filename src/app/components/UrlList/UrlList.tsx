@@ -20,7 +20,7 @@ export const UrlList = ({ pages, filters }: UrlListProps) => {
     return filters[i] && key;
   });
 
-  const allFiltersInactive = !Object.keys(filters).find((key, i) => {
+  const allFiltersInactive = !Object.keys(filters).find((_key, i) => {
     return filters[i] === true;
   });
 

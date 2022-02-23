@@ -1,4 +1,4 @@
-import React, { FormHTMLAttributes, useEffect, useState } from 'react';
+import React, { FormHTMLAttributes, useEffect } from 'react';
 
 import classes from './ResultFilter.module.scss';
 
