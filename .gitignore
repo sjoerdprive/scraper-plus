@@ -6,5 +6,3 @@ dist-ssr
 .eslintcache
 output
 outputimage
-.husky
-.storybook
