@@ -8,7 +8,7 @@
     "server:build": "tsc --project tsconfig.server.json",
     "client:build": "vite build",
     "storybook:build": "build-storybook -o dist/storybook",
-    "build": "npm run server:build && npm run client:build && npm run storybook:build",
+    "build": "npm run server:build && npm run client:build",
     "serve": "vite preview",
     "prepare": "husky install",
     "test": "tsc && eslint . && stylelint \"**/*.css\"",
