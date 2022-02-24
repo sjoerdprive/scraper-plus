@@ -23,7 +23,7 @@ app.post('/api', async (_req, res) => {
   console.log('fetching for ', urlToFetch);
 
   try {
-    const response = await run(1, urlToFetch);
+    const response = await run(2, urlToFetch);
     res.send(response);
   } catch (err) {
     res.send(err);

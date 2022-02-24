@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import classes from './Table.module.scss';
 
 export interface CellProps {
   value: string | string[];
 }
 
 interface PossibleLinkProps {
-  text: string;
+  value: string;
 }
 
-const PossibleLink = ({ text }: PossibleLinkProps) => {
-  return text.match(/https?:\/\//) ? (
-    <a href={text}>{text}</a>
-  ) : (
-    <span>{text}</span>
-  );
+const FormattedValue = ({ value }: PossibleLinkProps) => {
+  const [isImgOpen, setImgOpen] = useState(false);
+  // is link?
+  if (value.match(/https?:\/\//)) return <a href={value}>{value}</a>;
+  // is image buffer?
+  if (value.match(/data:image/))
+    return (
+      <div className={`${classes.imgWrapper} ${isImgOpen && classes.open}`}>
+        <button onClick={() => setImgOpen(!isImgOpen)}>
+          {isImgOpen ? 'Verberg afbeelding' : 'Toon afbeelding'}
+        </button>
+        <img alt="" src={value} />
+      </div>
+    );
+
+  // is plain text?
+  return <span>{value}</span>;
 };
 
 export const Cell = ({ value }: CellProps) => {
@@ -22,11 +35,11 @@ export const Cell = ({ value }: CellProps) => {
       {Array.isArray(value) ? (
         <ul>
           {value.map((item, index) => (
-            <li key={index}>{<PossibleLink text={item} />}</li>
+            <li key={index}>{<FormattedValue value={item} />}</li>
           ))}
         </ul>
       ) : (
-        <PossibleLink text={value} />
+        <FormattedValue value={value} />
       )}
     </td>
   );

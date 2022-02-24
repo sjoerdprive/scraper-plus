@@ -11,6 +11,8 @@
 
   td {
     padding: 0.5em 1em;
+    position: relative;
+
   }
 
 }
@@ -21,4 +23,33 @@
   padding: 0;
   display: flex;
   gap: 0.25em;
+}
+
+.imgWrapper {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.2em;
+
+  position: relative;
+
+  img {
+    display: none;
+    box-shadow: 0 0 20px #4448;
+  }
+
+  &.open {
+
+    img {
+      display: block;
+      position: absolute;
+      z-index: 2;
+      right: 100%;
+      top: 0;
+    }
+  }
+
+
 }

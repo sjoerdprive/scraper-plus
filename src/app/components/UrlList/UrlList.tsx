@@ -6,9 +6,9 @@ interface UrlListProps {
   pages: {
     [key: string]: string | string[];
     url: string;
-    featureList: string[];
+    features: string[];
   }[];
-  filters: any[];
+  filters: { [key: string]: boolean };
 }
 
 export const UrlList = ({ pages, filters }: UrlListProps) => {
@@ -16,20 +16,23 @@ export const UrlList = ({ pages, filters }: UrlListProps) => {
   if (!pages.map || pages.length < 1)
     return <span>Geen pagina's gevonden</span>;
 
-  const activeFilters = Object.keys(filters).map((key, i) => {
-    return filters[i] && key;
+  const activeFilters = Object.keys(filters).filter((key) => {
+    return filters[key];
   });
 
-  const allFiltersInactive = !Object.keys(filters).find((_key, i) => {
-    return filters[i] === true;
+  const allFiltersInactive = !Object.keys(filters).find((key) => {
+    return filters[key] === true;
   });
 
   const headers = Object.keys(pages[0]);
+  console.log(filters);
+  console.log(activeFilters);
 
   const filteredPages = pages.filter((page) => {
-    return page?.featureList?.find((feature: string) =>
-      activeFilters.some((filter) => feature.match(filter))
-    );
+    return page?.features?.find((feature: string) => {
+      console.log(feature);
+      return activeFilters.some((filter) => feature.match(filter));
+    });
   });
 
   useEffect(() => {

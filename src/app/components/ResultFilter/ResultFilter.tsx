@@ -16,9 +16,8 @@ export const ResultFilter = (props: ResultFilterProps) => {
     { label: 'Formulieren', tag: 'form' },
     { label: 'Tabellen', tag: 'table' },
     { label: 'iframes', tag: 'iframe' },
+    { label: 'PDF', tag: 'pdf' },
   ];
-
-  console.log(filters);
 
   useEffect(() => {
     fields.forEach((field: any) => {
