@@ -14,7 +14,7 @@ export const Form = () => {
     undefined
   );
 
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState<{ [key: string]: boolean }>({});
 
   const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
